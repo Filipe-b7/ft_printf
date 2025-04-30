@@ -11,36 +11,30 @@
 # **************************************************************************** #
 
 NAME = libftprintf.a
-
-LIBFT_DIR = ./libft
-LIBFT_A = $(LIBFT_DIR)/libft.a
-
-INCS = .
-SRCS = ft_printf.c
-OBJS = $(SRCS:.c = .o);
-
+INCS = ft_printf.h
 CC = cc 
-CFLAGS = -Wall -Werror -Wextra -I$(INCS)
+SRCS = ft_printf.c \
+		parsing.c \
+		utils.c \
+		utils_hex.c
 
+OBJS = $(SRCS:.c = .o);
+CFLAGS = -Wall -Werror -Wextra -I$(INCS)
 AR = ar -rcs
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
-	@make -C $(LIBFT_DIR)
-	$(AR) $(NAME) $(OBJS) $(LIBFT_A)
+$(NAME) : $(OBJS) $(INCS)
+	$(AR) $(NAME) $(OBJS) $(INCS)
 
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-
 clean:
 	rm -f $(OBJS)
-	@make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
-	@make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
