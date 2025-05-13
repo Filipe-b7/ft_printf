@@ -6,7 +6,7 @@
 #    By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/29 13:29:57 by frocha-b          #+#    #+#              #
-#    Updated: 2025/05/05 16:49:08 by frocha-b         ###   ########.fr        #
+#    Updated: 2025/05/13 12:17:50 by frocha-b         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ all : $(NAME)
 $(NAME) : $(OBJS) $(HEADER)	
 	$(AR) $(NAME) $(OBJS)
 
-%.o: %.c
+%.o:%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 	
 clean:
