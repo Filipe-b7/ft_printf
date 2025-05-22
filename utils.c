@@ -20,6 +20,12 @@ void	ft_putchar(int c, int	*length)
 
 void	ft_putstr(char *str, int *length)
 {
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		*length += 6;
+		return ;
+	}
 	while (*str)
 	{
 		ft_putchar(*str, length);

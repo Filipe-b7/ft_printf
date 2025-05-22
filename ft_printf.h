@@ -6,7 +6,7 @@
 /*   By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 16:58:53 by frocha-b          #+#    #+#             */
-/*   Updated: 2025/05/05 17:54:28 by frocha-b         ###   ########.fr       */
+/*   Updated: 2025/05/13 14:51:52 by frocha-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+
+int		ft_printf(const char *format, ...);
 
 						/*Parse*/
 int		parse_input(const char *format, va_list args, int length);

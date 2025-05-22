@@ -1,35 +1,23 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: frocha-b <frocha-b@student.42porto.com>    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/29 13:29:57 by frocha-b          #+#    #+#              #
-#    Updated: 2025/05/13 12:17:50 by frocha-b         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = libftprintf.a
-HEADER = ft_printf.h
-CC = gcc
 SRCS = ft_printf.c \
-		parsing.c \
-		utils.c \
-		utils_hex.c
+	parsing.c \
+	utils.c \
+	utils_hex.c
 
 OBJS = $(SRCS:.c=.o)
-CFLAGS = -Wall -Werror -Wextra -I.
+
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 AR = ar -rcs
 
-all : $(NAME)
+all: $(NAME)
 
-$(NAME) : $(OBJS) $(HEADER)	
+$(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-%.o:%.c
+%.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
-	
+
 clean:
 	rm -f $(OBJS)
 
@@ -37,5 +25,7 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
 
 		
